@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block title %}piotrekczajka.pl{% endblock %}
+
+{% block content %}
+    <div id="post-list">
+      {% for post in posts %}
+        <div class="post">
+          <div class="post-inner">
+            <h2>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </h2>
+            <p class="content">
+              {{ post.body|truncatewords:30|linebreaks }}
+            </p>
+          </div>
+          <p class="date">
+            {{ post.published }}
+          </p>
+        </div>
+      {% endfor %}
+      {% include "pagination.html" with page=page_obj %}
+    </div>
+{% endblock %}

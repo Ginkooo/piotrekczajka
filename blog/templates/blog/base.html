@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>PiotrekCzajka.pl</h1>
+            <h2>Programowanie i nie tylko</h2>
+        </header>
+        <div class="content">
+                {% block content %}
+                {% endblock %}
+        </div>
+        <script src="{% static "js/scripts.js" %}"></script>
+    </body>
+</html>

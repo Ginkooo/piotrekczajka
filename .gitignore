@@ -1,0 +1,6 @@
+*uwsgi*
+*.ini
+.mypy_cache/
+db.sqlite3
+__pycache__/
+settings.py
