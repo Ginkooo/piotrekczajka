@@ -1,6 +1,7 @@
 html, body {
     padding: 0;
     margin: 0;
+    height: 100%;
 }
 
 body {
@@ -36,6 +37,11 @@ header > * {
 
 .post-inner {
     margin: 20px;
+}
+
+.pagination {
+    margin: 20px auto;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1000px) {
