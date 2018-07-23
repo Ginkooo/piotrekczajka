@@ -1,7 +1,7 @@
 from django.urls import path
 from blog import views
 
-POST_PATH = '<int:year>/<int:month>/<int:day>/<slug:slug>'
+POST_PATH = '<int:year>/<int:month>/<int:day>/<slug:slug>/'
 
 urlpatterns = [
     path('', views.PostListView.as_view(), name='post_list'),
