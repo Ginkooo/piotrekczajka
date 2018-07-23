@@ -27,6 +27,7 @@ class Post(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES,
                               default='draft')
 
+    objects = models.Manager()
     active = PublishedManager()
 
     def get_absolute_url(self):
