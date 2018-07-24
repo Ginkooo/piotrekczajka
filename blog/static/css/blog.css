@@ -19,29 +19,64 @@ header > * {
 
 .content {
     width: 60%;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .post {
     background: #ededed;
-    position: relative;
-    height: 200px;
+    display: flex;
+    height: 300px;
+    flex-direction: column;
 }
 
-.date {
+.post.detail {
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.share {
+    margin-left: 10px;
+}
+
+p.date {
     margin: 0;
     margin-left: 10px;
-    position: absolute;
-    bottom: 0;
+}
+
+div.date {
+    flex: 1;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .post-inner {
+    flex: 9;
     margin: 20px;
+    text-overflow: ellipsis;
 }
 
 .pagination {
     margin: 20px auto;
     text-align: center;
+}
+
+header {
+    text-align: center;
+    padding: 40px;
+}
+
+header h1, h2 {
+    display: inline;
+}
+
+header h2 {
+    font-size: 0.7em;
 }
 
 @media only screen and (max-width: 1000px) {

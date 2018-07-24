@@ -8,15 +8,17 @@
         <div class="post">
           <div class="post-inner">
             <h2>
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <a clsss="post-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </h2>
-            <p class="content">
+            <p class="post-content">
               {{ post.body|truncatewords:30|linebreaks }}
             </p>
           </div>
-          <p class="date">
-            {{ post.published }}
-          </p>
+          <div class="date">
+              <p class="date">
+                {{ post.published }}
+              </p>
+          </div>
         </div>
       {% endfor %}
       {% include "pagination.html" with page=page_obj %}
