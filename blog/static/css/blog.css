@@ -29,6 +29,10 @@ header > * {
     flex-direction: column;
 }
 
+#post-list .post {
+    margin-top: 30px;
+}
+
 .post.detail {
     height: auto;
 }
