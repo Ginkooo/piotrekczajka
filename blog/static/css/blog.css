@@ -96,6 +96,15 @@ header a {
     float: left;
 }
 
+.sidebar-header:after {
+    content: "";
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    height: 1px;
+    background: black;
+}
+
 @media only screen and (max-width: 1000px) {
     .content {
         width: 80%;
@@ -105,5 +114,10 @@ header a {
 @media only screen and (max-width: 600px) {
     .content {
         width: 90%;
+    }
+
+    #sidebar {
+        clear: both;
+        width: 100%;
     }
 }
