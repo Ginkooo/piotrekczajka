@@ -1,29 +1,33 @@
 <div id="newsletter">
+    <h3 class="sidebar-header">Newsletter</h3>
     <div class="inner">
         <p>Nie przegap posta!</p>
         Zapisz się do programistycznego newslettera :)<p>
         <div class="input-container">
             <input id="newsletter-input" type="email" name="email">
+            <button>Ok</button>
         </div>
     </div>
 </div>
 
 <style>
-    .inner {
-        margin: 10px
+    #newsletter {
+        background: red;
+        padding: 10px;
+        text-align: center;
     }
 
     .inner > p:first-child {
         font-weight: bold;
     }
-</style>
 
-<script>
-    let el = document.getElementsByClassName('input-container')[0]
-    console.log(el)
-    let input = el.children[0];
-    let w = el.clientWidth
-    w = w + 'px'
-    console.log(input)
-    input.style.width = w
-</script>
+    .input-container > button {
+        margin-top: 5px;
+    }
+
+    #newsletter-input {
+        width: 100%;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+</style>
