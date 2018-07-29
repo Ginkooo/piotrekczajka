@@ -1,1 +1,47 @@
-{% include "newsletter.html" %}
+{% load staticfiles %}
+
+<div id="sidebar">
+    <div class="bookmark">
+        <div class="left">
+            {% include "newsletter.html" %}
+        </div>
+        <div class="right">
+            <img src="{% static "img/search.svg" %}" alt="Szukaj">
+        </div>
+    </div>
+    <div class="bookmark">
+        <div class="left">
+            {% include "newsletter.html" %}
+        </div>
+        <div class="right">
+            <img src="{% static "img/message.svg" %}" alt="Message">
+        </div>
+    </div>
+    <div class="bookmark">
+        <div class="left">
+            {% include "newsletter.html" %}
+        </div>
+        <div class="right">
+            <img src="{% static "img/facebook.svg" %}" alt="Facebook">
+        </div>
+    </div>
+    <div class="bookmark">
+        <div class="left">
+            {% include "newsletter.html" %}
+        </div>
+        <div class="right">
+            <img src="{% static "img/twitter.svg" %}" alt="Twitter">
+        </div>
+    </div>
+    <div class="bookmark">
+        <div class="left">
+            {% include "newsletter.html" %}
+        </div>
+        <div class="right">
+            <img src="{% static "img/rss.svg" %}" alt="RSS">
+        </div>
+    </div>
+</div>
+
+ <script>
+ </script>
