@@ -43,6 +43,10 @@ header > * {
     transition-duration: 1s;
 }
 
+#topbar {
+    height: 25px;
+}
+
 .bookmark:hover {
     transform: translate(265px, 0px);
 }
@@ -55,7 +59,7 @@ header > * {
 
 .bookmark > .left {
     flex: 3;
-    background: green;
+    background: #a797ff;
     padding: 5px;
 }
 
@@ -157,8 +161,6 @@ header a {
 }
 
 #footer {
+    margin-top: 5px;
     clear: both;
-}
-
-@media only screen and (max-width: 600px) {
 }

@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<div id="topbar">
+    <a href="facebook.com"><img src="{% static "img/facebook.svg" %}" alt="Facebook"></a>
+    <a href="twitter.com"><img src="{% static "img/twitter.svg" %}" alt="Twitter"></a>
+    <a href="piotrekczajka.pl/feed"><img src="{% static "img/rss.svg" %}" alt="RSS"></a>
+</div>
+
+<style>
+#topbar {
+    background: #313131;
+    color: white;
+}
+
+#topbar > a {
+    float: right;
+    display: block;
+    margin: 2px 5px;
+    height: 100%;
+    width: 20px;
+}
+</style>
