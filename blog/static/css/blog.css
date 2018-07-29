@@ -160,10 +160,5 @@ header a {
     clear: both;
 }
 
-@media only screen and (max-width: 1000px) {
 @media only screen and (max-width: 600px) {
-    #sidebar {
-        clear: both;
-        width: 100%;
-    }
 }
