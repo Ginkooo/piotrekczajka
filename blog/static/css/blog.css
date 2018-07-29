@@ -73,6 +73,7 @@ header > * {
 
 #post-list {
     background: #f0f0f0;
+    padding: 5px;
 }
 
 #post-list .post {
