@@ -9,3 +9,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    let button = document.querySelector('#newsletter button')
+    button.addEventListener('click', function () {
+        let email = document.querySelector('#newsletter-input').value
+        fetch('/newsletter/', {
+            method: 'POST',
+            body: JSON.stringify({'email': email}),
+            headers: {
+                'X-CSRFToken': Cookies.get('csrftoken')
+            }
+        }).then(function (response) {
+            response.json().then(function (data) {
+                alert(data['msg'])
+            })
+        })
+    })
+</script>

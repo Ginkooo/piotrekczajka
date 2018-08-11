@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <a href="{{ link }}">Nowy post na {{ host }} o tytule {{ title }}</a>
+        <br>
+        Jeśli chcesz zresygnować z newslettera, kliknij w poniższy link:
+        <br>
+        <a href="{{ host|urlencode }}/{{ resign_link|urlencode }}">Wypisz mnie z newslettera</a>
+    </body>
+</html>

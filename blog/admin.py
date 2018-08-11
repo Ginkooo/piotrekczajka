@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post, NewsletterAddresse
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -11,4 +11,9 @@ class PostAdmin(admin.ModelAdmin):
     ordering = 'status published'.split()
 
 
+class NewsletterAddresseAdmin(admin.ModelAdmin):
+    list_display = 'email token'.split()
+
+
 admin.site.register(Post, PostAdmin)
+admin.site.register(NewsletterAddresse, NewsletterAddresseAdmin)

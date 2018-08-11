@@ -1,8 +1,15 @@
+import string
+import random
+
 from django.db import models
+from django.core.mail import send_mail
 from django.utils import timezone
+from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.template import loader
+from django.template.defaultfilters import urlencode
 
 
 class PublishedManager(models.Manager):
@@ -43,3 +50,35 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title} by {self.author.username.title()}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.status != 'published':
+            return
+        args = {
+            'url': self.get_absolute_url(),
+            'title': self.title,
+            'host':  settings.DOMAIN,
+        }
+        for addr in NewsletterAddresse.objects.all():
+            args['resign_link'] = addr.get_resign_link()
+            msg = loader.render_to_string('email/post.html', args)
+            send_mail(self.title, '', 'no-reply@piotrekczajka.pl',
+                      [addr.email], fail_silently=False,
+                      html_message=msg)
+
+
+class NewsletterAddresse(models.Model):
+    email = models.EmailField(unique=True)
+    token = models.CharField(max_length=60)
+
+    def get_resign_link(self):
+        email = urlencode(self.email)
+        token = urlencode(self.token)
+        return f'cancel-newsletter/{email}/{token}'
+
+    def save(self, *args, **kwargs):
+        alphabet = string.printable.replace('/', '')
+        token = ''.join(random.choice(alphabet) for _ in range(60))
+        self.token = token
+        super().save(*args, **kwargs)
