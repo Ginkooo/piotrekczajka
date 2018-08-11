@@ -69,7 +69,7 @@ class Post(models.Model):
 
 
 class NewsletterAddresse(models.Model):
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     token = models.CharField(max_length=60)
 
     def get_resign_link(self):
