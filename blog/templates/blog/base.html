@@ -14,33 +14,8 @@
           }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="{% static "js/scripts.js" %}"></script>
 
-<script>
-    function popUp(status, msg, redirect) {
-        let color = 'green'
-        switch (status) {
-            case 'ok':
-                color = 'green'
-                break
-            case 'fail':
-                color = 'red'
-                break
-            default:
-                color = 'blue'
-        }
-        let popup = document.querySelector('#popup-msg')
-        let span = document.querySelector('#popup-msg > span')
-        popup.style.background = color
-        popup.style.display = 'block'
-        span.innerHTML = msg
-        setTimeout(function () {
-            popup.style.display = 'none'
-            if (redirect) {
-                window.location = redirect
-            }
-        }, 2000)
-    }
-</script>
     </head>
     <body>
         {% csrf_token %}

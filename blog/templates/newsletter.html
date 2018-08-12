@@ -11,20 +11,15 @@
 </div>
 
 <script>
-    let button = document.querySelector('#newsletter button')
+    var button = document.querySelector('#newsletter button')
     button.addEventListener('click', function () {
-        let email = document.querySelector('#newsletter-input').value
-        fetch('/newsletter/', {
-            method: 'POST',
-            body: JSON.stringify({'email': email}),
-            headers: {
-                'X-CSRFToken': Cookies.get('csrftoken')
-            }
-        }).then(function (response) {
-            let status = response.status === 500 ? 'fail' : 'ok'
-            response.json().then(function (data) {
-                popUp(status, data['msg'])
-            })
+        var email = document.querySelector('#newsletter-input').value
+        asyncPost('/newsletter/', {'email': email}, function (response) {
+            var data = JSON.parse(response.responseText)
+            popUp('ok', data['msg'])
+        }, function (response) {
+            var data = JSON.parse(response.responseText)
+            popUp('fail', data['msg'])
         })
     })
 </script>
