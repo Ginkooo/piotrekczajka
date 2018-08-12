@@ -14,12 +14,43 @@
           }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script>
+    function popUp(status, msg, redirect) {
+        let color = 'green'
+        switch (status) {
+            case 'ok':
+                color = 'green'
+                break
+            case 'fail':
+                color = 'red'
+                break
+            default:
+                color = 'blue'
+        }
+        let popup = document.querySelector('#popup-msg')
+        let span = document.querySelector('#popup-msg > span')
+        popup.style.background = color
+        popup.style.display = 'block'
+        span.innerHTML = msg
+        setTimeout(function () {
+            popup.style.display = 'none'
+            if (redirect) {
+                window.location = redirect
+            }
+        }, 2000)
+    }
+</script>
     </head>
     <body>
+        {% csrf_token %}
         <header>
             <h1><a href="/">PiotrekCzajka.pl</a></h1>
             <h2>Programowanie&nbsp;i&nbsp;nie&nbsp;tylko</h2>
         </header>
+        <div id='popup-msg'>
+            <span></span>
+        </div>
         {% include "topbar.html" %}
         <div id="content-container">
             {% block content %}
@@ -27,6 +58,25 @@
         </div>
         {% include "sidebar.html" %}
         {% include "footer.html" %}
-        <script src="{% static "js/scripts.js" %}"></script>
     </body>
 </html>
+
+<style>
+    #popup-msg {
+        position: absolute;
+        height: 50px;
+        width: 70%;
+        background: red;
+        z-index: 15;
+        bottom: 10px;
+        left: 15%;
+        display: none;
+        text-align: center;
+    }
+
+    #popup-msg > span{
+        color: white;
+        display: inline-block;
+        margin-top: 15px;
+    }
+</style>

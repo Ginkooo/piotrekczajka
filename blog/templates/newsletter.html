@@ -21,8 +21,9 @@
                 'X-CSRFToken': Cookies.get('csrftoken')
             }
         }).then(function (response) {
+            let status = response.status === 500 ? 'fail' : 'ok'
             response.json().then(function (data) {
-                alert(data['msg'])
+                popUp(status, data['msg'])
             })
         })
     })
